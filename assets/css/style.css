@@ -420,6 +420,11 @@ h3{
     color: inherit; /* Menggunakan warna teks yang sama seperti teks di sekitarnya */
 }
 
+.project-box img {
+    margin-bottom: 3%; /* Ubah nilai sesuai kebutuhan */
+}
+
+
 /* ----- CONTACT BOX ----- */
 .contact-info{
     position: relative;
@@ -653,3 +658,28 @@ footer{
 }
 
 
+
+.project-box::after {
+    content: "";
+    position: absolute;
+    bottom: -100%;
+    background: var(--second-color);
+    width: 100%;
+    height: 100%;
+    transition: .4s;
+    z-index: 1; /* z-index untuk lapisan biru */
+}
+
+.project-box:hover::after {
+    bottom: 0;
+}
+
+.project-box:hover img {
+    z-index: 2; /* z-index untuk gambar */
+}
+
+.project-box:hover h3,
+.project-box:hover label {
+    color: var(--color-white);
+    z-index: 3; /* z-index untuk teks */
+}
