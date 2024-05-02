@@ -82,6 +82,7 @@ body{
 .container{
     width: 100%;
     position: relative;
+    overflow-x: hidden; /* Tambahkan properti ini */
 }
 
 /* ----- NAVIGATION BAR ----- */
@@ -633,6 +634,10 @@ footer{
 /* ----- MEDIA QUERY == 540px / RESPONSIVE ----- */
 
 @media only screen and (max-width: 540px){
+    body {
+        background: var(--body-color);
+        overflow-x: hidden; /* Tambahkan properti ini */
+    }
     .featured-name{
         font-size: 40px;
     }
