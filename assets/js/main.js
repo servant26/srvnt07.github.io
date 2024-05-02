@@ -94,24 +94,32 @@
   
   const sections = document.querySelectorAll('section[id]')
 
-  function scrollActive() {
+function scrollActive() {
     const scrollY = window.scrollY;
 
     sections.forEach(current =>{
-      const sectionHeight = current.offsetHeight,
-          sectionTop = current.offsetTop - 50,
-        sectionId = current.getAttribute('id')
+        const sectionHeight = current.offsetHeight,
+              sectionTop = current.offsetTop - 50,
+              sectionId = current.getAttribute('id');
 
-      if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) { 
+        if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) { 
+            // Menandai navigasi yang sesuai sebagai aktif
+            document.querySelector('.nav-menu a[href="#' + sectionId + '"]').classList.add('active-link');
+        }  else {
+            document.querySelector('.nav-menu a[href="#' + sectionId + '"]').classList.remove('active-link');
+        }
+    });
 
-          document.querySelector('.nav-menu a[href*=' + sectionId + ']').classList.add('active-link')
+    // Periksa jika pengguna sedang berada di bagian social media dan tandai navigasi sosial sebagai aktif
+    const socialMediaSection = document.getElementById('sosmed');
+    const socialMediaTop = socialMediaSection.offsetTop - 50;
+    const socialMediaBottom = socialMediaTop + socialMediaSection.offsetHeight;
+    if (scrollY > socialMediaTop && scrollY <= socialMediaBottom) {
+        document.querySelector('.nav-menu a[href="#sosmed"]').classList.add('active-link');
+    } else {
+        document.querySelector('.nav-menu a[href="#sosmed"]').classList.remove('active-link');
+    }
+}
 
-      }  else {
-
-        document.querySelector('.nav-menu a[href*=' + sectionId + ']').classList.remove('active-link')
-
-      }
-    })
-  }
 
   window.addEventListener('scroll', scrollActive)
