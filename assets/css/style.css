@@ -572,7 +572,7 @@ footer{
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background: rgba(255, 255, 255, 0.7);
+        background: #333;
         backdrop-filter: blur(20px);
         width: 100%;
         min-height: 450px;
@@ -644,7 +644,7 @@ footer{
         overflow-x: hidden; /* Tambahkan properti ini */
     }
     .featured-name{
-        font-size: 40px;
+        font-size: 30px;
     }
     .project-box{
         width: 100%;
